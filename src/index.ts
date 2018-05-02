@@ -4,27 +4,15 @@ import "core-js/shim";
 
 import { Source, parse, concatAST, buildASTSchema } from "graphql";
 
-import * as fs from "fs";
-import * as path from "path";
 import * as graphqlHTTP from "express-graphql";
-// import chalk from "chalk";
 import { pick } from "lodash";
 import { proxyMiddleware } from "./proxy";
-
-const fakeDefinitionAST = readAST(
-  path.join(__dirname, "fake_definition.graphql")
-);
-
-function readIDL(filepath) {
-  return new Source(fs.readFileSync(filepath, "utf-8"), filepath);
-}
-
-function readAST(filepath) {
-  return parse(readIDL(filepath));
-}
+import fake_definition from "./fake_definition_graphql";
 
 function buildServerSchema(idl) {
-  var ast = concatAST([parse(idl), fakeDefinitionAST]);
+  const fakeIDL = new Source(fake_definition, "Fake definition AST");
+  const fakeAST = parse(fakeIDL);
+  var ast = concatAST([parse(idl), fakeAST]);
   return buildASTSchema(ast);
 }
 
