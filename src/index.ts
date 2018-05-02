@@ -131,4 +131,4 @@ const fakedSchema = `
 
 app.use("/graphql", fakerProxy(fakedSchema, url));
 
-app.listen(3000);
+app.listen(3001);
