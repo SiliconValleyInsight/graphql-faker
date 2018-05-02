@@ -4,7 +4,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "module": "commonjs",
-    "target": "es5",
+    "target": "es6",
     "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -12,17 +12,30 @@
     "outDir": "dist",
     "pretty": true,
     "moduleResolution": "node",
-    "lib": [
-      "es2017",
-      "esnext.asynciterable"
-    ]
+    "lib": ["es2017", "esnext.asynciterable"]
   },
   "compileOnSave": false,
-  "exclude": [
-    "src/editor",
-    "node_modules",
-    ".tmp",
-    "dist",
-    "lib"
-  ]
+  "exclude": ["src/editor", "node_modules", ".tmp", "dist", "lib"]
+
+  // {
+  //   "compilerOptions": {
+  //       "module": "commonjs",
+  //       "esModuleInterop": true,
+  //       "target": "es6",
+  //       "noImplicitAny": true,
+  //       "moduleResolution": "node",
+  //       "sourceMap": true,
+  //       "outDir": "dist",
+  //       "baseUrl": ".",
+  //       "paths": {
+  //           "*": [
+  //               "node_modules/*",
+  //               "src/types/*"
+  //           ]
+  //       }
+  //   },
+  //   "include": [
+  //       "src/**/*"
+  //   ]
+  // }
 }
